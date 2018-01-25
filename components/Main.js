@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 import MyHeader from "./MyHeader"
+import Restaurants from "./Restaurants"
+import Promotions from "./Promotions"
 
 const MenuButton = (props) => (
   <TouchableOpacity onPress={()=>{props.navigation.navigate('DrawerOpen')}}>
@@ -33,25 +35,9 @@ export default class Main extends Component<{}> {
   render() {
     const { navigate } = this.props.navigation;
     return (
-
       <View style={styles.container}>
-        <StatusBar hidden = {true}/>
-        <Button
-          onPress={() => navigate('Authentication',{username: 'Tung'})}
-          title="Go to Authentication"
-        />
-        <Button
-          onPress={() => navigate('OrderHistory')}
-          title="Go to OrderHistory"
-        />
-        <Button
-          onPress={() => navigate('MyInfo')}
-          title="Go to MyInfo"
-        />
-        <Button
-          onPress={() => navigate('DrawerOpen')}
-          title="Go to DrawerOpen"
-        />
+        <Promotions/>
+        <Restaurants/>
       </View>
     );
   }
@@ -60,8 +46,6 @@ export default class Main extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#2ecc71',
   },
 
@@ -71,3 +55,19 @@ const styles = StyleSheet.create({
   },
 
 })
+// <Button
+//   onPress={() => navigate('Authentication',{username: 'Tung'})}
+//   title="Go to Authentication"
+// />
+// <Button
+//   onPress={() => navigate('OrderHistory')}
+//   title="Go to OrderHistory"
+// />
+// <Button
+//   onPress={() => navigate('MyInfo')}
+//   title="Go to MyInfo"
+// />
+// <Button
+//   onPress={() => navigate('DrawerOpen')}
+//   title="Go to DrawerOpen"
+// />

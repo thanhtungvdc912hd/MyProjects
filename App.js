@@ -8,6 +8,7 @@ import OrderHistory from "./components/OrderHistory"
 import MyInfo from "./components/MyInfo"
 import SlideMenu from "./components/SlideMenu"
 import Menu2 from "./components/Menu2"
+import MyHeader from "./components/MyHeader"
 
 // Manifest of possible screens
 const MyTabNavigator = TabNavigator({
@@ -19,14 +20,14 @@ const MyTabNavigator = TabNavigator({
   // Default config for all screens
   tabBarOptions: {
     activeTintColor: '#e91e63',
-    showLabel: false
+    showLabel: false,
 
   }
 })
 
 const SimpleApp = StackNavigator({
   MyMain: { screen: MyTabNavigator},
-  Authentication: { screen: Authentication },
+  Authentication: { screen: Authentication }
 })
 
 const MyMenu = DrawerNavigator({

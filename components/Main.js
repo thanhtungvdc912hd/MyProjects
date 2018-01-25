@@ -9,19 +9,17 @@ import {
   StatusBar
 } from 'react-native';
 
+import MyHeader from "./MyHeader"
+
 const MenuButton = (props) => (
   <TouchableOpacity onPress={()=>{props.navigation.navigate('DrawerOpen')}}>
     <Image source={require("../images/menu.png")} style={styles.icon}/>
   </TouchableOpacity>
 )
-<StatusBar
-  translucent
-  backgroundColor="rgba(0, 0, 0, 0.20)"
-  animated
-/>
+
 export default class Main extends Component<{}> {
-  static navigationOptions = ({navigation, screenProps}) => ({
-    title: 'Home',
+  static navigationOptions = ({navigation, screenProps, title}) => ({
+    header: <MyHeader navigation = {navigation}/>,
     headerLeft:<MenuButton navigation = {navigation}/>,
     tabBarIcon: ({ tintColor }) => (
       <Image
@@ -37,7 +35,7 @@ export default class Main extends Component<{}> {
     return (
 
       <View style={styles.container}>
-        <Text>Hello, My Restaurant!</Text>
+        <StatusBar hidden = {true}/>
         <Button
           onPress={() => navigate('Authentication',{username: 'Tung'})}
           title="Go to Authentication"
@@ -71,4 +69,5 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
   },
+
 })

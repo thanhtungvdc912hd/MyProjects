@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#2ecc71',
     flex: 0.1,
-    padding: 5,
+    padding: 10,
     justifyContent: 'space-around'
   },
   headerText: {
@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
 
-  },
-  headerSearch: {
-    alignItems: 'center'
   },
   headerTitle: {
     color: 'white',

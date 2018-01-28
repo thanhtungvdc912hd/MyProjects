@@ -9,8 +9,7 @@ import {
 
 export default class OrderHistory extends Component<{}> {
   static navigationOptions = {
-    title: 'History',
-    headerBackTitle: null,
+    title: 'Order History',
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={require('../images/orderHistory_r.png')}
@@ -22,11 +21,6 @@ export default class OrderHistory extends Component<{}> {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text>Hello, My Authentication!</Text>
-        <Button
-          onPress={() => navigate('OrderHistory')}
-          title="Go to OrderHistory"
-        />
       </View>
     );
   }

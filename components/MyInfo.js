@@ -8,24 +8,13 @@ import {
 } from 'react-native';
 
 export default class MyInfo extends Component<{}> {
-  static navigationOptions = {
-    title: 'You',
-    //headerBackTitle: null,
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('../images/myInfo_r.png')}
-        style={[styles.icon,{tintColor: tintColor}]}
-      />
-    ),
-  }
+  static navigationOptions = ({ navigation }) => ({
+    title: `Hello, ${navigation.state.params.username}`,
+  });
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-        <Button
-          onPress={() => navigate('Main')}
-          title="Go to Main"
-        />
       </View>
     );
   }

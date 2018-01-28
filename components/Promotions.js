@@ -12,7 +12,8 @@ import Swiper from 'react-native-swiper';
 export default class Promotions extends Component<{}> {
   render() {
     return (
-      <Swiper showsButtons={true} autoplay={true} style={styles.container}>
+      <View style={styles.container}>
+      <Swiper autoplay={true} >
         <View style={styles.slide1}>
           <Text style={styles.text}>Hello Swiper</Text>
         </View>
@@ -23,13 +24,16 @@ export default class Promotions extends Component<{}> {
           <Text style={styles.text}>And simple</Text>
         </View>
       </Swiper>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 5
+    paddingTop: 5,
+    height: 200
+
   },
   slide1: {
     flex: 1,

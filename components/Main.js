@@ -6,11 +6,12 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  ScrollView
 } from 'react-native';
 
 import MyHeader from "./MyHeader"
-import Restaurants from "./Restaurants"
+import TopRestaurants from "./TopRestaurants"
 import Promotions from "./Promotions"
 
 const MenuButton = (props) => (
@@ -20,7 +21,7 @@ const MenuButton = (props) => (
 )
 
 export default class Main extends Component<{}> {
-  static navigationOptions = ({navigation, screenProps, title}) => ({
+  static navigationOptions = ({navigation}) => ({
     header: <MyHeader navigation = {navigation}/>,
     headerLeft:<MenuButton navigation = {navigation}/>,
     tabBarIcon: ({ tintColor }) => (
@@ -31,14 +32,13 @@ export default class Main extends Component<{}> {
     ),
   })
 
-
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Promotions/>
-        <Restaurants/>
-      </View>
+        <TopRestaurants/>
+      </ScrollView>
     );
   }
 }
@@ -55,19 +55,3 @@ const styles = StyleSheet.create({
   },
 
 })
-// <Button
-//   onPress={() => navigate('Authentication',{username: 'Tung'})}
-//   title="Go to Authentication"
-// />
-// <Button
-//   onPress={() => navigate('OrderHistory')}
-//   title="Go to OrderHistory"
-// />
-// <Button
-//   onPress={() => navigate('MyInfo')}
-//   title="Go to MyInfo"
-// />
-// <Button
-//   onPress={() => navigate('DrawerOpen')}
-//   title="Go to DrawerOpen"
-// />

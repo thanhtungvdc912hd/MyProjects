@@ -29,15 +29,17 @@ export default class Main extends Component<{}> {
         source={require('../images/home_r.png')}
         style={[styles.icon,{tintColor: tintColor}]}
       />
-    ),
+    )
   })
 
   render() {
     const { navigate } = this.props.navigation;
+
     return (
       <ScrollView style={styles.container}>
-        <Promotions/>
-        <TopRestaurants/>
+        <StatusBar hidden={true}/>
+        <Promotions navigate={navigate}/>
+        <TopRestaurants navigate={navigate}/>
       </ScrollView>
     );
   }
@@ -46,7 +48,7 @@ export default class Main extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2ecc71',
+    backgroundColor: '#43a047',
   },
 
   icon: {

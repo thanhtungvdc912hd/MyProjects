@@ -3,26 +3,27 @@ import {
   StyleSheet,
   View,
   Text,
+  Button,
+  Image,
   TouchableOpacity,
-  TextInput,
-  Image
+  StatusBar
 } from 'react-native';
 
-export default class MyHeader extends Component<{}> {
+export default class PromotionDetail extends Component<{}> {
+  static navigationOptions = ({navigation}) => ({
+    header: null,
+  })
   render() {
+    const {goBack} = this.props.navigation
     return (
       <View style={styles.container}>
         <View style={styles.headerText}>
-          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('DrawerOpen')}}>
-            <Image source={require("../images/menu2.png")} style={styles.icon}/>
+          <TouchableOpacity onPress={()=> goBack()}>
+            <Image source={require("../images/home_r.png")} style={styles.icon}/>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>My Restaurant</Text>
           <Image source={require("../images/logo.png")} style={styles.icon}/>
         </View>
-        <TextInput style={styles.textSearch}
-          placeholder = "What do you want to eat?"
-        />
-
       </View>
     );
   }
@@ -31,9 +32,10 @@ export default class MyHeader extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#43a047',
-    flex: 0.1,
+    flex: 1,
     padding: 10,
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+
   },
   headerText: {
     flexDirection: 'row',
@@ -49,11 +51,5 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
-  },
-  textSearch: {
-    paddingLeft: 10,
-    marginTop: 15,
-    height: 25,
-    backgroundColor: 'white',
   },
 })

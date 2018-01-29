@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
@@ -7,55 +7,64 @@ import {
   Image,
   TouchableOpacity,
   StatusBar
-} from 'react-native';
-import Swiper from 'react-native-swiper';
+} from 'react-native'
+import Swiper from 'react-native-swiper'
 export default class Promotions extends Component<{}> {
   render() {
+
     return (
       <View style={styles.container}>
-      <Swiper autoplay={true} >
-        <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Beautiful</Text>
-        </View>
-        <View style={styles.slide3}>
-          <Text style={styles.text}>And simple</Text>
-        </View>
-      </Swiper>
+        <Swiper autoplay={true} >
+          <View style={styles.slide1}>
+            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
+              <Image source={require("../images/voucher1.png")} style={styles.voucher}/>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.slide2}>
+            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
+              <Image source={require("../images/voucher2.png")} style={styles.voucher}/>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.slide3}>
+            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
+              <Image source={require("../images/voucher1.png")} style={styles.voucher}/>
+            </TouchableOpacity>
+          </View>
+        </Swiper>
       </View>
     );
   }
 }
-
+const restauWidth= 360
+const restauHeight= restauWidth * 460 /1104
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 5,
-    height: 200
-
+    margin: 2,
+    height: 200,
+    backgroundColor: '#a5d6a7'
   },
   slide1: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9DD6EB',
   },
   slide2: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#97CAE5',
   },
   slide3: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#92BBD9',
   },
   text: {
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
+  },
+  voucher: {
+    height: restauHeight,
+    width: restauWidth
   }
 })

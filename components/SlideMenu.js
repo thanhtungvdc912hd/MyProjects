@@ -61,7 +61,7 @@ export default class SlideMenu extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2ecc71',
+    backgroundColor: '#43a047',
     borderRightWidth: 1,
     borderColor: '#fff',
     alignItems: 'center'
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
   },
   btnText: {
-    color: '#2ecc71',
+    color: '#43a047',
     fontSize: 15
   },
   username: {

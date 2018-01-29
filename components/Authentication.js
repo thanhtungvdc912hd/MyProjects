@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import MyHeader from "./MyHeader"
 
 export default class Authentication extends Component<{}> {
   constructor(props) {
@@ -23,17 +24,19 @@ export default class Authentication extends Component<{}> {
   signUpClick = () => {
     this.setState({isLoggedIn: true})
   }
+
   static navigationOptions = ({navigation}) => ({
-    header: null,
+    header: null,//<MyHeader navigation = {navigation}/>,
   })
 
   render() {
     const { navigate } = this.props.navigation
+    const { goBack } = this.props.navigation
     const signInJSX = (
       <View>
         <TextInput style={styles.input} placeholder='Enter your email'/>
         <TextInput style={styles.input} placeholder='Enter your password'/>
-        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Main')}}
+        <TouchableOpacity onPress={()=>{navigate()}}
         style={styles.signInNow}>
           <Text style={styles.headerTitle}>Sign In Now</Text>
         </TouchableOpacity>
@@ -57,7 +60,7 @@ export default class Authentication extends Component<{}> {
     return (
       <View style={styles.container}>
         <View style={styles.headerText}>
-          <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Main')}}>
+          <TouchableOpacity onPress={()=>{goBack()}}>
             <Image source={require("../images/home_r.png")} style={styles.icon}/>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>My Restaurant</Text>
@@ -83,7 +86,7 @@ export default class Authentication extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2ecc71',
+    backgroundColor: '#43a047',
     flex: 1,
     padding: 10,
     justifyContent: 'space-between',

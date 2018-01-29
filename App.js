@@ -7,6 +7,10 @@ import OrderHistory from "./components/OrderHistory"
 import MyInfo from "./components/MyInfo"
 import SlideMenu from "./components/SlideMenu"
 import MyHeader from "./components/MyHeader"
+import RestaurantDetail from "./components/RestaurantDetail"
+import PromotionDetail from "./components/PromotionDetail"
+import Restaurant from "./components/Restaurant"
+
 
 // Manifest of possible screens
 const MyTabNavigator = TabNavigator({
@@ -26,6 +30,10 @@ const SimpleApp = StackNavigator({
   Authentication: { screen: Authentication },
   MyInfo: { screen: MyInfo },
   OrderHistory: { screen: OrderHistory },
+  PromotionDetail: { screen: PromotionDetail },
+  RestaurantDetail: { screen: RestaurantDetail },
+  Restaurant: { screen: Restaurant},
+
 })
 
 const MyMenu = DrawerNavigator({

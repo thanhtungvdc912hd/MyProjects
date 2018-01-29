@@ -8,7 +8,7 @@ import {
   Image
 } from 'react-native';
 
-export default class MyHeader extends Component<{}> {
+export default class MyHeaderMain extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>

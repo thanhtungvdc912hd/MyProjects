@@ -31,9 +31,11 @@ export default class Main extends Component<{}> {
       />
     )
   })
-
+  componentDidMount() {
+    this.props.navigation.navigate('OrderHistories')
+  }
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
 
     return (
       <ScrollView style={styles.container}>

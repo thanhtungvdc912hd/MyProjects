@@ -24,8 +24,6 @@ export default class TopRestaurants extends Component<{}> {
         <Restaurant navigate={this.props.navigate}/>
         <Restaurant navigate={this.props.navigate}/>
         <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
 
       </View>
     );

@@ -11,7 +11,7 @@ export default class SlideMenu extends Component<{}> {
   constructor(props) {
     super(props)
     this.state = {
-      isLoggedIn : false
+      isLoggedIn : true
     }
   }
   render() {
@@ -31,7 +31,7 @@ export default class SlideMenu extends Component<{}> {
         <Text style={styles.username}>Dao Thanh Tung</Text>
         <View style={styles.logInController}>
           <TouchableOpacity style={styles.btnStyleSignIn}
-            onPress={() => navigate('OrderHistory')}>
+            onPress={() => navigate('OrderHistories')}>
             <Text style={styles.btnText}>Order History</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnStyleSignIn}

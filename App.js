@@ -3,18 +3,20 @@ import { StackNavigator, DrawerNavigator, TabNavigator } from 'react-navigation'
 
 import Main from "./components/Main"
 import Authentication from "./components/Authentication"
-import OrderHistory from "./components/OrderHistory"
+import OrderHistories from "./components/OrderHistories"
 import MyInfo from "./components/MyInfo"
 import SlideMenu from "./components/SlideMenu"
 import MyHeader from "./components/MyHeader"
 import RestaurantDetail from "./components/RestaurantDetail"
 import PromotionDetail from "./components/PromotionDetail"
 import Restaurant from "./components/Restaurant"
+import Orders from "./components/Orders"
 
 
 // Manifest of possible screens
 const MyTabNavigator = TabNavigator({
   Main: { screen: Main },
+  Orders: { screen: Orders },
 },
 {
   // Default config for all screens
@@ -29,7 +31,7 @@ const SimpleApp = StackNavigator({
   MyMain: { screen: MyTabNavigator},
   Authentication: { screen: Authentication },
   MyInfo: { screen: MyInfo },
-  OrderHistory: { screen: OrderHistory },
+  OrderHistories: { screen: OrderHistories },
   PromotionDetail: { screen: PromotionDetail },
   RestaurantDetail: { screen: RestaurantDetail },
   Restaurant: { screen: Restaurant},

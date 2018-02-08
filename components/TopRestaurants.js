@@ -6,27 +6,34 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  StatusBar,
-  ScrollView
+  FlatList
 } from 'react-native';
 import Restaurant from './Restaurant'
 
 export default class TopRestaurants extends Component<{}> {
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Top Restaurants</Text>
+    const {restaurants} = this.props
+    const {navigate} = this.props
+    if(restaurants.length == 0){
+        return(
+        <View><Text>Loading...</Text></View>
+        )
+    } else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>Top Restaurants</Text>
+          </View>
+          <FlatList
+            data={restaurants}
+            renderItem={({item}) => (
+              <Restaurant navigate={navigate} restaurant={item} key={item.id}/>
+            )}
+            keyExtractor={(item, index) => index}
+          />
         </View>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-        <Restaurant navigate={this.props.navigate}/>
-
-      </View>
-    );
+      );
+    }
   }
 }
 

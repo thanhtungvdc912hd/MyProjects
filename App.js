@@ -10,7 +10,9 @@ import MyHeader from "./components/MyHeader"
 import RestaurantDetail from "./components/RestaurantDetail"
 import PromotionDetail from "./components/PromotionDetail"
 import Restaurant from "./components/Restaurant"
+import Restaurants from "./components/Restaurants"
 import Orders from "./components/Orders"
+import Foods from "./components/Foods"
 
 
 // Manifest of possible screens
@@ -35,6 +37,8 @@ const SimpleApp = StackNavigator({
   PromotionDetail: { screen: PromotionDetail },
   RestaurantDetail: { screen: RestaurantDetail },
   Restaurant: { screen: Restaurant},
+  Restaurants: { screen: Restaurants},
+  Foods: { screen: Foods},
 
 })
 

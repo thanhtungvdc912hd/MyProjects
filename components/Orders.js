@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from 'react-native';
-import Order from './Order'
+import Food from './Food'
 export default class Orders extends Component<{}> {
   static navigationOptions = ({navigation}) => ({
     header: null,
@@ -34,9 +34,9 @@ export default class Orders extends Component<{}> {
           <Image source={require("../images/logo.png")} style={styles.icon}/>
         </View>
         <ScrollView>
-          <Order navigate={navigate}/>
-          <Order navigate={navigate}/>
-          <Order navigate={navigate}/>
+          <Food navigate={navigate}/>
+          <Food navigate={navigate}/>
+          <Food navigate={navigate}/>
         </ScrollView>
         <TouchableOpacity style={styles.checkOut} onPress={()=> goBack()}>
           <Text style={styles.headerTitle}>Total Menu 1000.000 VND</Text>
@@ -69,5 +69,7 @@ const styles = StyleSheet.create({
   },
   checkOut: {
     alignItems: 'flex-end',
+    height: 50,
+    justifyContent: 'center'
   },
 })

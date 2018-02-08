@@ -10,7 +10,7 @@ import {
   ScrollView
 } from 'react-native';
 
-export default class Order extends Component<{}> {
+export default class Food extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   txtRestauName: {
     color: '#30336b',
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: 'Avenir',
     fontWeight: 'bold'
   },

@@ -2,69 +2,47 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
-  Text,
-  Button,
-  Image,
-  TouchableOpacity,
-  StatusBar
+  Text
 } from 'react-native'
 import Swiper from 'react-native-swiper'
+import Promotion from './Promotion'
+
 export default class Promotions extends Component<{}> {
   render() {
-
-    return (
-      <View style={styles.container}>
-        <Swiper autoplay={true} >
-          <View style={styles.slide1}>
-            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
-              <Image source={require("../images/voucher1.png")} style={styles.voucher}/>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.slide2}>
-            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
-              <Image source={require("../images/voucher2.png")} style={styles.voucher}/>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.slide3}>
-            <TouchableOpacity onPress={()=>{this.props.navigate('PromotionDetail')}}>
-              <Image source={require("../images/voucher1.png")} style={styles.voucher}/>
-            </TouchableOpacity>
-          </View>
-        </Swiper>
-      </View>
-    );
+    const {promotions} = this.props
+    const {restaurants} = this.props
+    const {navigate} = this.props
+    if(this.props.promotions.length == 0){
+        return(
+        <View><Text>Loading...</Text></View>
+        )
+    } else {
+      return (
+        <View style={styles.container}>
+          <Swiper autoplay={true}>
+          {promotions.map(p => (
+            <Promotion navigate={navigate} promotion={p} restaurant={restaurants.find((element) => {return element.id === p.restaurantId})} key={p.id}/>
+          ))}
+          </Swiper>
+        </View>
+      );
+    }
   }
 }
 const restauWidth= 360
 const restauHeight= restauWidth * 460 /1104
 const styles = StyleSheet.create({
   container: {
-    margin: 2,
-    height: 200,
-    backgroundColor: '#a5d6a7'
-  },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
+    height: restauHeight,
+    marginBottom: 10
   },
   voucher: {
     height: restauHeight,
     width: restauWidth
+  },
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

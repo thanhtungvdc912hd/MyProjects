@@ -21,6 +21,13 @@ const MenuButton = (props) => (
 )
 
 export default class Main extends Component<{}> {
+  constructor(props) {
+    super(props)
+    this.state = {
+      restaurants: [],
+      promotions: [],
+    }
+  }
   static navigationOptions = ({navigation}) => ({
     header: <MyHeader navigation = {navigation}/>,
     headerLeft:<MenuButton navigation = {navigation}/>,
@@ -32,16 +39,22 @@ export default class Main extends Component<{}> {
     )
   })
   componentDidMount() {
-    this.props.navigation.navigate('OrderHistories')
+    fetch('http://192.168.64.2/myrestau/')
+    .then(res => res.json())
+    .then(resJSON => {
+        const {restaurants, promotions} = resJSON
+        this.setState({restaurants, promotions})
+    });
   }
   render() {
     const { navigate } = this.props.navigation
-
+    const {restaurants} = this.state
+    const {promotions} = this.state
     return (
       <ScrollView style={styles.container}>
         <StatusBar hidden={true}/>
-        <Promotions navigate={navigate}/>
-        <TopRestaurants navigate={navigate}/>
+        <Promotions navigate={navigate} promotions={promotions} restaurants={restaurants}/>
+        <TopRestaurants navigate={navigate} restaurants={restaurants}/>
       </ScrollView>
     );
   }

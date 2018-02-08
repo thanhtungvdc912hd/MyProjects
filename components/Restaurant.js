@@ -12,23 +12,29 @@ import {
 
 export default class Restaurant extends Component<{}> {
   render() {
+    const {restaurant} = this.props
+    const {branches} = this.props
+    if (branches != null) {
+        restaurant.branches = branches
+    }
+
+    const url = `http://192.168.64.2/myrestau/images/restaurant/${restaurant.image}`
     return (
-      <View style={styles.container}>
         <View style={styles.restauContainer}>
           <View style={styles.restauStyle}>
             <View style={styles.restauImage}>
-              <TouchableOpacity onPress={()=>{this.props.navigate('RestaurantDetail')}}>
-                <Image source={require("../images/r2.jpg")} style={styles.image}/>
+              <TouchableOpacity onPress={()=>{this.props.navigate('RestaurantDetail', {restaurant})}}>
+                <Image source={{uri: url}} style={styles.image}/>
               </TouchableOpacity>
             </View>
             <View style={styles.restauInfo}>
               <View style={styles.restauInfoTool}>
                   <View style={{justifyContent: 'center'}}>
-                    <Text style={styles.txtRestauName}>BB' House Restaurant</Text>
+                    <Text style={styles.txtRestauName}>{restaurant.name}</Text>
                   </View>
                   <View style={styles.restauInfoTool}>
                     <View>
-                      <TouchableOpacity onPress={()=>{this.props.navigate('RestaurantDetail')}}>
+                      <TouchableOpacity onPress={()=>{this.props.navigate('RestaurantDetail',{restaurant})}}>
                         <Image source={require("../images/info.png")} style={styles.icon}/>
                       </TouchableOpacity>
                     </View>
@@ -41,60 +47,41 @@ export default class Restaurant extends Component<{}> {
                   </View>
               </View>
 
-              <Text  style={styles.txtAddress}>376/42 Nguyen Dinh Chieu, Phuong 4, Quan 3, TP Ho Chi Minh</Text>
-              <View style={{flexDirection: 'row'}}>
+              <Text style={styles.txtAddress}>{restaurant.address}</Text>
+              <View style={styles.time}>
                 <Image source={require("../images/time.png")} style={styles.icon}/>
-                <View style={{justifyContent: 'center', paddingLeft:10 }}>
-                  <Text style={{fontSize: 10}}>7H - 23H</Text>
-                </View>
+                <Text style={styles.txtTime}>{restaurant.openTime}</Text>
+                <Text style={styles.txtTime}>-</Text>
+                <Text style={styles.txtTime}>{restaurant.closeTime}</Text>
               </View>
-
-              <Text style={{fontSize: 10 }}>Comments</Text>
-
             </View>
           </View>
         </View>
-      </View>
     );
   }
 }
 const restauWidth= 100
 const restauHeight= restauWidth * 640 /960
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#a5d6a7',
-    margin: 2,
-  },
-  title: {
-    fontSize: 20,
-    color: "#0c2461"
-  },
-  titleContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10
-  },
   restauContainer: {
     flex:1,
-    justifyContent: 'space-around',
     paddingLeft: 5,
-    flexWrap: 'wrap'
-
-  },
-  restauStyle: {
-    marginBottom: 15,
-    flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: '#a5d6a7',
     borderTopWidth: 1,
     borderTopColor: '#95a5a6',
-    paddingTop: 10
+  },
+  restauStyle: {
+    marginBottom: 10,
+    flexDirection: 'row',
+    marginTop:10
   },
   image: {
     height: restauHeight,
     width: restauWidth
   },
   restauImage: {
-    paddingRight : 10
+    paddingRight : 10,
   },
   restauInfo: {
     flex: 1,
@@ -116,8 +103,17 @@ const styles = StyleSheet.create({
   },
   txtRestauName: {
     color: '#30336b',
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: 'Avenir',
     fontWeight: 'bold'
+  },
+  time: {
+    flexDirection: "row",
+    alignItems: 'center'
+  },
+  txtTime: {
+    fontSize: 10,
+    fontFamily: 'Avenir',
+    paddingRight: 10
   }
 })
